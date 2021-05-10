@@ -45,12 +45,12 @@ public class TicTacToe {
         while(true) {
             System.out.println("Enter the position you want to move to (must be betwween 1 to 9): ");
             int index = userInput.nextInt();
-            if(Array.asList(validCells).contains(index) && isSpaceFree(board, index)) {
+            if(Array.asList(validCells).contains(index) && isSpaceAvailable(board, index)) {
                 return index;
             }
         }
     }
-    private static boolean isSpaceFree(char[] board, int index) {
+    private static boolean isSpaceAvailable(char[] board, int index) {
         return board[index] == ' ';
     }
     public static void main(String[] args) {
