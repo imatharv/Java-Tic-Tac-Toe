@@ -40,6 +40,19 @@ public class TicTacToe {
         }	
         showBoard(board);
     }
+    private static int getUserMove(char[] board, Scanner userInput) {
+        Integer[] validCells = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        while(true) {
+            System.out.println("Enter the position you want to move to (must be betwween 1 to 9): ");
+            int index = userInput.nextInt();
+            if(Array.asList(validCells).contains(index) && isSpaceFree(board, index)) {
+                return index;
+            }
+        }
+    }
+    private static boolean isSpaceFree(char[] board, int index) {
+        return board[index] == ' ';
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to TicTacToe Game");
         Scanner userInput = new Scanner(System.in);
@@ -50,5 +63,6 @@ public class TicTacToe {
         System.out.println("Computer letter: "+computerLetter);
         showBoard(board);
         playerMove(board, userLetter);
+        //int userMove = getUserMove(board, userInput);
     }
 }
