@@ -45,7 +45,7 @@ public class TicTacToe {
         while(true) {
             System.out.println("Enter the position you want to move to (must be betwween 1 to 9): ");
             int index = userInput.nextInt();
-            if(Array.asList(validCells).contains(index) && isSpaceAvailable(board, index)) {
+            if(Arrays.asList(validCells).contains(index) && isSpaceAvailable(board, index)) {
                 return index;
             }
         }
@@ -53,6 +53,18 @@ public class TicTacToe {
     private static boolean isSpaceAvailable(char[] board, int index) {
         return board[index] == ' ';
     }
+    private static void Toss() {
+        Scanner scanner = new Scanner(System.in);
+		System.out.println("Lets Toss! Enter 1 for Heads and 2 for Tails");
+		int option = scanner.nextInt();
+		int toss = (int)Math.floor(Math.random() * 10) %2;
+		if(option == toss) {
+			System.out.println("Player won the toss.");
+		}
+		else {
+			System.out.println("Computer won the toss.");
+		}
+	}
     public static void main(String[] args) {
         System.out.println("Welcome to TicTacToe Game");
         Scanner userInput = new Scanner(System.in);
